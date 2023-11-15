@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,i,ok,d,s=0,p=1;
+    cin>>n;
+    for(i=2;i*i<=n;i++)
+    {
+        if(n%i==0)
+        {
+            ok=0;
+            for(d=2;d*d<=i;d++)
+            {
+                if(i%d==0)
+                {
+                    ok=1;
+                }
+            }
+            if(ok==0)
+            {
+                s+=i;
+                p*=i;
+            }
+            ok=0;
+            for(d=2;d*d<=n/i;d++)
+            {
+                if((n/i)%d==0)
+                {
+                    ok=1;
+                }
+            }
+            if(ok==0)
+            {
+                s+=n/i;
+                p*=n/i;
+            }
+        }
+    }
+    cout<<s<<" "<<p;
+    
+    return 0;
+}
